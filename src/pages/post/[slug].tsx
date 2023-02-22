@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Header from "components/Header";
 import { GetStaticProps } from "next";
 import PortableText from "react-portable-text";

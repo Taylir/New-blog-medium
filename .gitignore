@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+medium-blog/node_modules
+medium-blog/dist
+
 # next.js
 /.next/
 /out/
