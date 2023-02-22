@@ -207,7 +207,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const query = `*[_type == 'post' && slug.current == "my-first-test-post"][0] {
+  const query = `*[_type == 'post' && slug.current == $slug][0] {
         _id,
         _createdAt,
         title,
