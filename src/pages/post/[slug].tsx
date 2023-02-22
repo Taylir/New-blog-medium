@@ -18,7 +18,7 @@ interface Props {
   post: Post;
 }
 
-export default function blogPost({ post }: Props) {
+export default function BlogPost({ post }: Props) {
   const [submitted, setSubmitted] = useState(false);
 
   console.log(post);
