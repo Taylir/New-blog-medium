@@ -29,7 +29,7 @@ export default function BlogPost({ post }: Props) {
     formState: { errors },
   } = useForm();
 
-  const onSubmit: SubmitHandler<formInput> = async (data) => {
+  const onSubmit: SubmitHandler<formInput> = async (data: formInput) => {
     await fetch("/api/createComment", {
       method: "POST",
       body: JSON.stringify(data),
