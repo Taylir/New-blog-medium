@@ -5,7 +5,7 @@ import PortableText from "react-portable-text";
 import { Post } from "typings";
 import { urlFor, sanityClient } from "../../../sanity";
 import blogStyles from "../../styles/blog.module.css";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 
 interface formInput {
   _id: string;
@@ -29,13 +29,14 @@ export default function BlogPost({ post }: Props) {
     formState: { errors },
   } = useForm();
 
-  const onSubmit: SubmitHandler<formInput> = async (data: formInput) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    const formData: formInput = data as formInput;
     await fetch("/api/createComment", {
       method: "POST",
-      body: JSON.stringify(data),
+      body: JSON.stringify(formData),
     })
       .then(() => {
-        console.log(data);
+        console.log(formData);
         setSubmitted(true);
       })
       .catch((err) => {
